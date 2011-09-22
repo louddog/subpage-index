@@ -83,12 +83,19 @@ class LoudDog_Subpage_Index {
 				<?php foreach ($children as $subpage) {
 					if (function_exists('subpage_index_page_output')) {
 						echo subpage_index_page_output($subpage);
-					} else { ?>
+					} else {
+						$options = csv_to_array(get_post_meta($subpage->ID, 'options', true));
+						$default = get_post_meta($subpage->ID, 'default', true);
+						
+						?>
 					
 						<dt>
 							<a href="<?php echo get_permalink($subpage->ID); ?>">
 								<?php echo $subpage->post_title; ?>
 							</a>
+							
+							<?php if ($options) echo "<span class='option'>[".implode(',', $options)."]</span>"; ?>
+							<?php if ($default) echo "<span class='default'>default: $default</span>"; ?>
 						</dt>
 					
 						<dd><?php echo generate_excerpt($subpage); ?></dd>
