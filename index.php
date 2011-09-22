@@ -94,7 +94,7 @@ class LoudDog_Subpage_Index {
 								<?php echo $subpage->post_title; ?>
 							</a>
 							
-							<?php if ($options) echo "<span class='options'>[".implode(',', $options)."]</span>"; ?>
+							<?php if ($options) echo "<span class='options'>[".implode(', ', $options)."]</span>"; ?>
 							<?php if ($default) echo "<span class='default'>default: $default</span>"; ?>
 						</dt>
 					
