@@ -19,7 +19,7 @@ class LoudDog_Subpage_Index {
 		include dirname(__FILE__).'/functions.php';
 		add_action('init', array(&$this, 'styles_and_scripts'));
 		add_action('admin_menu', array(&$this, 'admin_menu'));
-		add_shortcode('subpage-index', array(&$this, 'subpage_index'));
+		add_shortcode('subpage_index', array(&$this, 'subpage_index'));
 		add_post_type_support('page', 'excerpt');
 	}
 	
