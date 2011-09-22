@@ -11,6 +11,8 @@ new LoudDog_Subpage_Index();
 class LoudDog_Subpage_Index {
 	protected $defaults = array(
 		'page_id' => false,
+		'sort' => 'title',
+		'order' => 'asc',
 	);
 	
 	function __construct() {
@@ -61,6 +63,7 @@ class LoudDog_Subpage_Index {
 	}
 	
 	function subpage_index($options) {
+		if (isset($options['order'])) $options['order'] = strtoupper($options['order']);
 		extract($this->options = shortcode_atts($this->defaults, $options));
 
 		$page = $page_id ? get_post($page_id) : $GLOBALS['post'];
@@ -70,9 +73,11 @@ class LoudDog_Subpage_Index {
 			else return "[subpage-index must be used within a page or a page ID must be specified (page_id)]";
 		}
 		
-		$children = get_children(array(
+		$children = get_children($args = array(
 			'post_parent' => $page->ID,
 			'post_type' => 'page',
+			'orderby' => $sort,
+			'order' => $order, 
 		));
 		
 		ob_start();
