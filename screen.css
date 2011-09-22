@@ -1,0 +1,9 @@
+.subpage-index {
+	margin: 0;
+	padding: 10px;
+	background-color: #F7F7F7;
+}
+
+.subpage-index dd {
+	margin: 5px 0 10px 10px;
+}
