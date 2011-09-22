@@ -3,7 +3,7 @@
 Plugin Name: Subpage Index
 Description: Defines a shortcode that allows you to create an index on a page of its sub-pages.
 Author: Loud Dog
-Version: 1.0
+Version: 0.1
 Author URI: http://www.louddog.com/
 */
 
