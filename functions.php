@@ -29,3 +29,16 @@ if (!function_exists('generate_excerpt')) {
 		return apply_filters('wp_trim_excerpt', $content, $raw_content);
 	}
 }
+
+if (!function_exists('csv_to_array')) {
+	function csv_to_array($csv, $separator = ',') {
+		if (!$csv || !is_string($csv)) return $csv;
+		
+		$array = array();
+		foreach (explode($separator, $csv) as $item) {
+			$array[] = trim($item);
+		}
+		
+		return $array;
+	}
+}
