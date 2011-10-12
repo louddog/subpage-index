@@ -89,7 +89,8 @@ class LoudDog_Subpage_Index {
 					if (function_exists('subpage_index_page_output')) {
 						echo subpage_index_page_output($subpage);
 					} else {
-						$options = csv_to_array(get_post_meta($subpage->ID, 'options', true));
+						$options = get_post_meta($subpage->ID, 'options', true);
+						if ($options) $options = csv_to_array($options);
 						$default = get_post_meta($subpage->ID, 'default', true);
 						
 						?>
